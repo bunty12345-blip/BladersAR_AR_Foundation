@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
-
+using UnityEngine.UI;
 public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
 {
 
@@ -14,6 +14,12 @@ public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
     public GameObject searchForGamesButtonGameobject;
     public GameObject adjust_Button;
     public GameObject raycastCenter_Image;
+
+    public InputField roomNumberInputField;
+    public GameObject roomNumberUIbox;
+    public GameObject joinRoomButton;
+
+    public GameObject VoiceUI;
 
 
     // Start is called before the first frame update
@@ -38,6 +44,8 @@ public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom();
 
         searchForGamesButtonGameobject.SetActive(false);
+        joinRoomButton.SetActive(false);
+        VoiceUI.SetActive(true);
 
 
     }
@@ -70,6 +78,25 @@ public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
         uI_InformText.text = message;
 
         CreateAndJoinRoom();
+    }
+
+    //Extra added function to join a specific room
+
+    public void onJoinRoomButtonClicked()
+    {
+        searchForGamesButtonGameobject.SetActive(false);
+        joinRoomButton.SetActive(false);
+        roomNumberUIbox.SetActive(true);
+    }
+    public void JoinRoom()
+    {
+        string roomNumberToBeJoined = roomNumberInputField.text;
+        uI_InformText.text = " Joining Room, Please Wait....";
+        PhotonNetwork.JoinRoom("Room" + roomNumberToBeJoined);
+        roomNumberUIbox.SetActive(false);
+        VoiceUI.SetActive(true);
+
+
     }
 
 

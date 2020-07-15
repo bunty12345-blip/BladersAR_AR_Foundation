@@ -15,15 +15,19 @@ MonoBehaviour:
   AppSettings:
     AppIdRealtime: 16a604eb-5351-4fd9-b0c4-8878f020afa0
     AppIdChat: 
-    AppIdVoice: 
+    AppIdVoice: 419f9be0-60d9-4edf-a1b0-00a47bb373ec
     AppVersion: 
     UseNameServer: 1
     FixedRegion: 
     Server: 
     Port: 0
+    ProxyServer: 
     Protocol: 0
+    EnableProtocolFallback: 1
+    AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -36,5 +40,7 @@ MonoBehaviour:
   - Fire
   - ReBorn
   - RespawnSpaceship
+  - ChangeColour
   DisableAutoOpenWizard: 1
   ShowSettings: 1
+  DevRegionSetOnce: 0

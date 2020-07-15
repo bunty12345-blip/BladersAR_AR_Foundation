@@ -26,6 +26,7 @@ namespace Photon.Pun
         public int minViewId;
     }
 
+    [HelpURL("https://doc.photonengine.com/en-us/pun/current/getting-started/feature-overview#scene_photonviews_in_multiple_scenes")]
     public class PunSceneSettings : ScriptableObject
     {
 
@@ -87,7 +88,18 @@ namespace Photon.Pun
                 if (instanceField == null)
                 {
                     instanceField = ScriptableObject.CreateInstance<PunSceneSettings>();
-                    AssetDatabase.CreateAsset(instanceField, PunSceneSettingsCsPath);
+#pragma warning disable 0168
+                    try
+                    {
+                        AssetDatabase.CreateAsset(instanceField, PunSceneSettingsCsPath);
+                    }
+                    catch (Exception e)
+                    {
+#if PHOTON_UNITY_NETWORKING
+                        Debug.LogError("-- WARNING: PROJECT CLEANUP NECESSARY -- If you delete pun from your project, make sure you also clean up the Scripting define symbols from any reference to PUN like 'PHOTON_UNITY_NETWORKING ");     
+#endif
+                    }
+#pragma warning restore 0168
                 }
 
                 return instanceField;
