@@ -3,39 +3,97 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class MultiplayerUI_Manager : MonoBehaviour
+public class MultiplayerUI_Manager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject withFriends;
-    [SerializeField] GameObject joinRandomRoom;
-    [SerializeField] InputField playerNamefield;
-    [SerializeField] GameObject loginBox;
-    private string playerName;
+    public GameObject withFriendsButton;
+    public GameObject publicMatchButton;
+    public GameObject LoginUI;
+    public GameObject letsGO;
 
-    void Start()
+    [Header("Connection Status UI")]
+    public GameObject uI_ConnectionStatusGameobject;
+    public Text connectionStatusText;
+    public bool showConnectionStatus = false;
+
+    public InputField playerNameInputField;
+
+    public GameObject closebutton;
+
+    void Update()
     {
-        withFriends.SetActive(true);
-        joinRandomRoom.SetActive(true);
-        loginBox.SetActive(false);
-    }
-
-    public void PlayWithFriendsButton()
-    {
-        withFriends.SetActive(false);
-        joinRandomRoom.SetActive(false);
-        loginBox.SetActive(true);
-    }
-
-    public void EnterButtonClick()
-    {
-        withFriends.SetActive(false);
-        joinRandomRoom.SetActive(false);
-        loginBox.SetActive(true);
-
-        playerName = playerNamefield.text;
-        if(!string.IsNullOrEmpty(playerName))
+        if (showConnectionStatus)
         {
-            SceneLoader.Instance.LoadScene("Scene_Loading");
+            connectionStatusText.text = "Connection Status: " + PhotonNetwork.NetworkClientState;
+
         }
+
+    }
+    public void withFriendsButtonClicked()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+
+        }
+        else
+        {
+            withFriendsButton.SetActive(false);
+            publicMatchButton.SetActive(false);
+            LoginUI.SetActive(true);
+            closebutton.SetActive(false);
+        }
+    }
+    public void OnEnterGameButtonClicked()
+    {
+
+        string playerName = playerNameInputField.text;
+
+        if (!string.IsNullOrEmpty(playerName))
+        {
+            withFriendsButton.SetActive(false);
+            publicMatchButton.SetActive(false);
+            LoginUI.SetActive(false);
+
+            closebutton.SetActive(true);
+
+            showConnectionStatus = true;
+            uI_ConnectionStatusGameobject.SetActive(true);
+
+
+            if (!PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.LocalPlayer.NickName = playerName;
+
+                PhotonNetwork.ConnectUsingSettings();
+            }
+
+        }
+        else
+        {
+            Debug.Log("Player name is invalid or empty!");
+        }
+
+
+    }
+
+    public override void OnConnected()
+    {
+        Debug.Log("We connected to Internet");
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to Photon Server");
+        letsGO.SetActive(true);
+        LoginUI.SetActive(false);
+        uI_ConnectionStatusGameobject.SetActive(false);
+
+
+    }
+
+    public void OnLetsGoButtonClicked()
+    {
+        SceneLoader.Instance.LoadScene("Scene_PlayerSelection");
     }
 }
