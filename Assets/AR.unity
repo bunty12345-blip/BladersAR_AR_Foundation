@@ -1140,6 +1140,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4816214716465327736, guid: 286028de88efd6349bb0436abbdc9d7b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816214716465327736, guid: 286028de88efd6349bb0436abbdc9d7b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816214716465327736, guid: 286028de88efd6349bb0436abbdc9d7b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816214716465327736, guid: 286028de88efd6349bb0436abbdc9d7b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 939124474}
+    - target: {fileID: 4816214716465327736, guid: 286028de88efd6349bb0436abbdc9d7b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayWithFriendsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816214716465327736, guid: 286028de88efd6349bb0436abbdc9d7b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4846682883727667566, guid: 286028de88efd6349bb0436abbdc9d7b,
         type: 3}
       propertyPath: m_Name
@@ -1575,6 +1605,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoginBox 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448003369909687077, guid: 1ed78b72374742444b12d589c6c91d62,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448003369909687077, guid: 1ed78b72374742444b12d589c6c91d62,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ed78b72374742444b12d589c6c91d62, type: 3}
