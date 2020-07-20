@@ -28,6 +28,17 @@ public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
         uI_InformPanelGameobject.SetActive(true);
 
 
+        if(MultiplayerUI_Manager.withFriends == true)            //aishika
+        {
+            searchForGamesButtonGameobject.SetActive(false);
+            joinRoomButton.SetActive(true);
+        }
+        else if(MultiplayerUI_Manager.withFriends == false)
+        {
+            searchForGamesButtonGameobject.SetActive(true);
+            joinRoomButton.SetActive(false);
+        }                                                         //aishika
+
     }
 
     // Update is called once per frame

@@ -12,6 +12,8 @@ public class MultiplayerUI_Manager : MonoBehaviourPunCallbacks
     public GameObject LoginUI;
     public GameObject letsGO;
 
+    static public bool withFriends = false;          //aishika
+
     [Header("Connection Status UI")]
     public GameObject uI_ConnectionStatusGameobject;
     public Text connectionStatusText;
@@ -32,6 +34,23 @@ public class MultiplayerUI_Manager : MonoBehaviourPunCallbacks
     }
     public void withFriendsButtonClicked()
     {
+        withFriends = true;                   //aishika
+        if (PhotonNetwork.IsConnected)
+        {
+
+        }
+        else
+        {
+            withFriendsButton.SetActive(false);
+            publicMatchButton.SetActive(false);
+            LoginUI.SetActive(true);
+            closebutton.SetActive(false);
+        }
+    }
+
+    public void PublicMatchButtonClicked()           //aishika
+    {
+        withFriends = false;             
         if (PhotonNetwork.IsConnected)
         {
 
