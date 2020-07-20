@@ -57,9 +57,25 @@ public class ARPlacementAndPlaneDetectionController : MonoBehaviour
         scaleSlider.SetActive(false);
 
         placeButton.SetActive(false);
-        adjustButton.SetActive(true);
-        searchForGameButton.SetActive(true);
-        joinRoomButton.SetActive(true);
+
+
+        if(MultiplayerUI_Manager.withFriends == true)            //aishika
+        {
+            searchForGameButton.SetActive(false);
+            joinRoomButton.SetActive(true);
+            adjustButton.SetActive(true);
+        }
+        else if(MultiplayerUI_Manager.withFriends == false)
+        {
+            searchForGameButton.SetActive(true);
+            joinRoomButton.SetActive(false);
+            adjustButton.SetActive(true);
+        }                                                         //aishika
+
+
+        //adjustButton.SetActive(true);
+        //searchForGameButton.SetActive(true);
+        //joinRoomButton.SetActive(true);
 
         informUIPanel_Text.text = "Great! You placed the ARENA..Now, search for games or Join Room to BATTLE!";
 
