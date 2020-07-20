@@ -120,8 +120,5 @@ public class MultiplayerUI_Manager : MonoBehaviourPunCallbacks
     {
         Application.Quit();
     }
-    public void OnExitButtonNOClicked()
-    {
     
-    }
 }
