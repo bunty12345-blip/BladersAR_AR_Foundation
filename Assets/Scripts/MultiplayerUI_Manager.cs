@@ -115,4 +115,13 @@ public class MultiplayerUI_Manager : MonoBehaviourPunCallbacks
     {
         SceneLoader.Instance.LoadScene("Scene_PlayerSelection");
     }
+
+    public void OnExitButtonYESClicked()
+    {
+        Application.Quit();
+    }
+    public void OnExitButtonNOClicked()
+    {
+    
+    }
 }
